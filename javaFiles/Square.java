@@ -38,7 +38,7 @@ public class Square {
     }
 
     public void setSum(int sum){
-        //make sure to add all the connections first
+        //make sure to add all the connections before calling setSum
         this.regionSum = sum;
         for (Square s: connectedSquares){
             s.regionSum = sum;

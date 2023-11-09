@@ -3,8 +3,11 @@ package javaFiles;
 public class Main{
     public static void main(String[] args){
         Board board = Loader.loadBoard("test1.ksdk");
+        board.printBoard();
+        System.out.println();
 
         Solver.solve(board);
+        board.printBoard();
 
         Solver.testSolve(board);
 

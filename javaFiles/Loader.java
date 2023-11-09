@@ -2,11 +2,13 @@ package javaFiles;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Loader {
     public static Board loadBoard(String path){
 
+        //don't edit this
         Board board = new Board();
         File file = new File(path);
         String contents = new String();
@@ -43,7 +45,23 @@ public class Loader {
         return board;
     }
 
-    public static void saveBoard(String path){
+    public static void saveBoard(Board board, String path){
         File file = new File(path);
+        try{
+            PrintWriter pw = new PrintWriter(file);
+            for (Square square: board.squares){
+                pw.append("("+square.value+":"+square.regionSum+":(");
+                for (Square s: square.connectedSquares){
+                    pw.append("("+s.x+":"+s.y+").");
+                }
+                pw.append("));");
+            }
+            pw.flush();
+            pw.close();
+        } catch (FileNotFoundException fnfe){
+            fnfe.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
