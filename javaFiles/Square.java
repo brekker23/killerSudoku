@@ -1,4 +1,4 @@
-package java;
+package javaFiles;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,12 @@ public class Square {
         this.regionSum = regionSum;
     }
 
-    public void connectSquare(Square square){
+    public Square(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public void addConnection(Square square){
         for (Square s: this.connectedSquares){
             if (!s.connectedSquares.contains(square)){
                 s.connectedSquares.add(square);
