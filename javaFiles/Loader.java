@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import javax.naming.directory.InvalidAttributeIdentifierException;
+
 public class Loader {
     public static Board loadBoard(String path){
 
@@ -13,22 +15,35 @@ public class Loader {
         File file = new File(path);
         String contents = new String();
         try{
+            String name = file.getName();
+            if (!name.endsWith(".ksdk")){
+                throw new InvalidAttributeIdentifierException();
+            }
             Scanner scan = new Scanner(file);
             contents = scan.nextLine();
             scan.close();
         } catch (FileNotFoundException fnfe){
-            fnfe.printStackTrace();
+            // fnfe.printStackTrace();
             System.out.println("Couldn't find file "+path);
+            return board;
+        } catch (InvalidAttributeIdentifierException e){
+            System.out.println(path+" is not a .ksdk file!");
         }
 
         int index = 0;
         for (String squareData: contents.split(";")){
+            if (squareData.equals("")){
+                continue;
+            }
             Square square = board.squares.get(index);
             String[] dataSections = squareData.substring(1,squareData.length()-1).split(":");
             square.setValue(Integer.parseInt(dataSections[0]));
             String connectedCoords = dataSections[2].substring(1,dataSections[2].length()-1);
             for (String connectedCoord: connectedCoords.split("\\.")){
                 if (connectedCoord.equals("")){
+                    continue;
+                }
+                if (connectedCoord.length() < 4){
                     continue;
                 }
                 int connectedx = Integer.parseInt(connectedCoord.substring(1,2));
@@ -52,7 +67,7 @@ public class Loader {
             for (Square square: board.squares){
                 pw.append("("+square.value+":"+square.regionSum+":(");
                 for (Square s: square.connectedSquares){
-                    pw.append("("+s.x+":"+s.y+").");
+                    pw.append("("+s.x+","+s.y+").");
                 }
                 pw.append("));");
             }
