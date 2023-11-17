@@ -1,0 +1,8 @@
+1. All entries must be recieved by Janurary 16th at midnight
+2. No multithreading can be used and no concurrent processes
+3. If your program needs to create a file, only 50Mb of storage is allowed
+4. All entries will be timed on 3 different machines using 3 different tests on each machine and data the results will be released
+    roughly a week after the end of the competition
+5. While you have the ability to change any of the code in the project, the Main.java, and Loader.java files as well as the
+    testSolve method that you submit will be replaced with the original, so don't use them for coding the solver, only testing purposes
+6. Have fun and learn loads!
