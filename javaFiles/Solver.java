@@ -11,7 +11,6 @@ public class Solver {
 
     public static boolean testSolve(Board board){
         //do not edit code here
-        Boolean passing = true;
         for (Square square: board.squares){
             int testSum = square.value;
             int sum = square.regionSum;
@@ -19,16 +18,11 @@ public class Solver {
                 testSum = testSum + s.value;
             }
             if (testSum != sum){
-                passing = false;
-                break;
+                return false;
             }
             if (square.value < 1){
-                passing = false;
-                break;
+                return false;
             }
-        }
-        if (!passing){
-            return passing;
         }
         int[][] testCollumns = new int[9][9];
         int[][] testRows = new int[9][9];
@@ -44,35 +38,29 @@ public class Solver {
             for (int i = 0; i<collumn.length; i++){
                 for (int j = i+1; j<collumn.length;j++){
                     if (collumn[i] == collumn[j]){
-                        passing = false;
+                        return false;
                     }
                 }
             }
-        }
-        if (!passing){
-            return passing;
         }
         for (int[] row: testRows){
             for (int i = 0; i<row.length; i++){
                 for (int j = i+1; j<row.length; j++){
                     if (row[i]==row[j]){
-                        passing = false;
+                        return false;
                     }
                 }
             }
-        }
-        if (!passing){
-            return passing;
         }
         for (int[] house: houses){
             for (int i = 0; i<house.length; i++){
                 for (int j = i+1; j<house.length; j++){
                     if (house[j]==house[i]){
-                        passing = false;
+                        return false;
                     }
                 }
             }
         }
-        return passing;
+        return true;
     }
 }

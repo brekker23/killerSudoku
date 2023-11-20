@@ -1,4 +1,4 @@
-import Square
+from Square import Square
 
 class Board:
     def __init__(self):
@@ -62,7 +62,7 @@ class Board:
     def printBoardSums(self):
         for y in range(9):
             for x in range(9):
-                nsum = self.squares[9*y+x].sum
+                nsum = self.squares[9*y+x].regionSum
                 if nsum >= 10:
                     print(f"{nsum} ", end="")
                 else:

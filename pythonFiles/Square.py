@@ -5,12 +5,14 @@ class Square:
         self.y = y
         self.value = value
         self.regionSum = regionSum
+        self.connectedNodes = []
 
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.value = -1
         self.regionSum = -1
+        self.connectedNodes = []
     
     def addConnection(self,node):
         temp1=node.connectedNodes[:]
@@ -22,13 +24,13 @@ class Square:
             for n in temp3:
                 if n is not node and n not in node.connectedNodes:
                     node.connectedNodes.append(n)
-        self.setSum(self.sum)
+        self.setSum(self.regionSum)
 
     def setSum(self,sumn):
-        self.sum=sumn
+        self.regionSum=sumn
         self.hasSum=True
         for node in self.connectedNodes:
-            node.sum=sumn
+            node.regionSum=sumn
             node.hasSum=True
 
     def setValue(self,value):
@@ -37,5 +39,5 @@ class Square:
             self.hasValue=True
 
     def print(self):
-        print(f'x={self.x},y={self.y},value={self.value},connectedNodes={self.connectedNodes},sum={self.sum}')
+        print(f'x={self.x},y={self.y},value={self.value},connectedNodes={self.connectedNodes},sum={self.regionSum}')
 
