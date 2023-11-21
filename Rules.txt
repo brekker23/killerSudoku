@@ -5,4 +5,5 @@
     roughly a week after the end of the competition
 5. While you have the ability to change any of the code in the project, the Main.java, and Loader.java files as well as the
     testSolve method that you submit will be replaced with the original, so don't use them for coding the solver, only testing purposes
-6. Have fun and learn loads!
+6. email submission to j.d.corn@csuohio.edu along with your name for submission entries
+7. Have fun and learn loads!
