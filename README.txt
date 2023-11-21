@@ -7,6 +7,8 @@ solver can be coded in either java or python using a provided java or python pro
 
 all entries must be turned in by Janurary 16th and the competition begins Decmeber 16th (the day after finals week)
 
+email submissions along with your name to j.d.corn@csuohio.com
+
 the provided methods and classes can be found at https://github/brekker23/killerSudoku
 
 a description of the project, the provided classes and methods can be found in
