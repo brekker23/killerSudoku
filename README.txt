@@ -5,7 +5,7 @@ The fastest solver wins!
 
 solver can be coded in either java or python using a provided java or python project
 
-all entries must be turned in by Janurary 16th and the competition begins Decmeber 16th (the day after finals week)
+all entries must be turned in by Janurary 16th and the competition begins Decmeber 1th (the day after finals week)
 
 email submissions along with your name to j.d.corn@csuohio.com
 
