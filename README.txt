@@ -3,6 +3,8 @@ This is the CSU Winter Programming competition!
 The Objective of the competition is to create a "killer sudoku" solver.
 The fastest solver wins!
 
+Killer sudoku is a variant of sudoku, rules and example problems can be found at https://sudoku.com/killer
+
 solver can be coded in either java or python using a provided java or python project
 
 all entries must be turned in by Janurary 16th and the competition begins Decmeber 1th (the day after finals week)
